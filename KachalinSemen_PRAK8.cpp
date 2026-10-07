@@ -541,10 +541,6 @@ int main()
         }
         catch (const std::exception(e))
         {
-            delete obj;
-            delete obj2;
-            delete obj3;
-            delete T_A;
             std::cout << e.what() << "\n";
         }
     }
