@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Kachalin.ebba96eb\\x64\\Debug\\KachalinSemen_PRAK8.obj",
+            "outputs": [
+                "Kachalin.ebba96eb\\x64\\Debug\\KachalinSemen_PRAK8.cpp.obj.dt.module.json",
+                "Kachalin.ebba96eb\\x64\\Debug\\KachalinSemen_PRAK8.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}
