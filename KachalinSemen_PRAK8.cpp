@@ -53,7 +53,10 @@ public:
         Node* heads = head->next;
         delete head;
         head = heads;
-        head->prev = nullptr;      
+        head->prev = nullptr;     
+
+        heads = nullptr;
+        delete heads;
     }
     void pop_back()
     {
@@ -61,6 +64,9 @@ public:
         delete tail;
         tail = tails;
         tail->next = nullptr;
+
+        tails = nullptr;
+        delete tails;
     }
     void display_forward()
     {
@@ -70,6 +76,8 @@ public:
             std::cout << "Имя: " << s->data.name << " | Должность: " << s-> data.position << " | Зарплата: " << s->data.salary << "\n";
             s = s->next;
         }
+        s = nullptr;
+        delete s;
     }
     void display_backward()
     {
@@ -79,6 +87,8 @@ public:
             std::cout << "Имя: " << s->data.name << " | Должность: " << s->data.position << " | Зарплата: " << s->data.salary << "\n";
             s = s->prev;
         }
+        s = nullptr;
+        delete s;
     }
     void search_element(Employee obj, int element)
     {
@@ -90,6 +100,8 @@ public:
                 if (s->data.name == obj.name)
                 {
                     std::cout << "Имя: " << s->data.name << " | Должность: " << s->data.position << " | Зарплата: " << s->data.salary << "\n";
+                    s = nullptr;
+                    delete s;
                     return;
                 }
             }
@@ -98,6 +110,8 @@ public:
                 if (s->data.position == obj.position)
                 {
                     std::cout << "Имя: " << s->data.name << " | Должность: " << s->data.position << " | Зарплата: " << s->data.salary << "\n";
+                    s = nullptr;
+                    delete s;
                     return;
                 }
             }
@@ -106,11 +120,15 @@ public:
                 if (s->data.salary == obj.salary)
                 {
                     std::cout << "Имя: " << s->data.name << " | Должность: " << s->data.position << " | Зарплата: " << s->data.salary << "\n";
+                    s = nullptr;
+                    delete s;
                     return;
                 }
             }
             s = s->next;
         }
+        s = nullptr;
+        delete s;
     }
     void search_element_and_delete(Employee obj, int element)
     {
@@ -142,6 +160,12 @@ public:
                         head = gg2;
                         tail = gg2;
                     }
+                    gg = nullptr;
+                    gg2 = nullptr;
+                    s = nullptr;
+                    delete gg;
+                    delete gg2;
+                    delete s;
                     return;
                 }
             }
@@ -170,6 +194,12 @@ public:
                         head = gg2;
                         tail = gg2;
                     }
+                    gg = nullptr;
+                    gg2 = nullptr;
+                    s = nullptr;
+                    delete gg;
+                    delete gg2;
+                    delete s;
                     return;
                 }
             }
@@ -198,14 +228,32 @@ public:
                         head = gg2;
                         tail = gg2;
                     }
+                    gg = nullptr;
+                    gg2 = nullptr;
+                    s = nullptr;
+                    delete gg;
+                    delete gg2;
+                    delete s;
                     return;
                 }
             }
             s = s->next;
         }
+        s = nullptr;
+        delete s;
     }
     void clear_elements()
     {
+        Node* s = head;
+        while (s != nullptr)
+        {
+            Node* heads = s->next;
+            delete s;
+            s = heads;
+            if(s != nullptr)
+                s->prev = nullptr;
+
+        }
         head = nullptr;
         tail = nullptr;
     }
@@ -223,7 +271,14 @@ public:
             }       
             max = max->next;
         }
+        
         std::cout << "Имя: " << maxi->data.name << " | Должность: " << maxi->data.position << " | Зарплата: " << maxi->data.salary << "\n";
+
+        max = nullptr;
+        maxi = nullptr;
+        delete max;
+        delete maxi;
+
     }
     void DELETE_EMPLOYERS_IN_PRICE_MIN(double price)
     {
@@ -254,10 +309,16 @@ public:
                     tail = gg2;
                 }
                 s = head;
+                gg = nullptr;
+                gg2 = nullptr;
+                delete gg;
+                delete gg2;
                 continue;
             }
             s = s->next;
         }
+        s = nullptr;
+        delete s;
     }
     void GO_IN_TABLE_IN_NAME(Node* obj,std::string name)
     {
@@ -274,10 +335,17 @@ public:
                 {
                     tail = obj;
                 }
+                max = nullptr;
+                gg2 = nullptr;
+                delete max;
+                delete gg2;
                 return;
             }
             max = max->next;
         }
+        max = nullptr;
+        delete max;
+        
     }
 };
 Node* GetEmployer()
